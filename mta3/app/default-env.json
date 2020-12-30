@@ -1,0 +1,8 @@
+{
+    "destinations": [
+        {
+            "name": "srv",
+            "url": "http://localhost:5001"
+        }
+    ]
+}

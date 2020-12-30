@@ -1,0 +1,17 @@
+{
+  "name": "mta3-srv",
+  "version": "1.0.0",
+  "description": "Very basic nodejs express server",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@sap/hdbext": "^7.0.1",
+    "@sap/xsenv": "^3.1.0",
+    "body-parser": "latest",
+    "express": "latest"
+  },
+  "author": "",
+  "license": "ISC"
+}

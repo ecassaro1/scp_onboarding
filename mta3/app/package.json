@@ -1,0 +1,13 @@
+{
+    "name": "mta3-app",
+    "version": "1.0.0",
+    "description": "Very basic app",
+    "dependencies": {
+        "@sap/approuter": "^6"
+    },
+    "scripts": {
+        "start": "node node_modules/@sap/approuter/approuter.js"
+    },
+    "author": "",
+    "license": "ISC"
+}

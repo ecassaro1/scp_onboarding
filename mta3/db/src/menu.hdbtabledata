@@ -1,0 +1,23 @@
+{
+    "format_version": 1,
+    "imports": [
+        {
+            "target_table": "mta3.db::menu",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "mta3.db::menu.csv",
+                "has_header": true,
+                "type_config": {
+                    "delimiter": ",",
+                    "do_quote": true
+                }
+            },
+            "import_settings": {
+                "import_columns": [
+                    "id",
+                    "description"
+                ]
+            }
+        }
+    ]
+}

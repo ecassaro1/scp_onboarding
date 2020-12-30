@@ -1,0 +1,6 @@
+COLUMN TABLE "mta3.db::menu" 
+    (
+        "id" INTEGER, 
+        "description" VARCHAR(100),
+        PRIMARY KEY ("id") 
+    )
