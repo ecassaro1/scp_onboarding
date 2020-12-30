@@ -13,3 +13,7 @@ MTA3:
     não tem authenticação
     tbm roda local desde que o DB esteja criado e bindado no db e no srv (default-env.json)
     
+para atualizar o git a partir do BAS:
+    na pane de git fazer o add e o commit
+    utilizar o seguinte comando no terminal para efetivar o push:
+        git push origin master
