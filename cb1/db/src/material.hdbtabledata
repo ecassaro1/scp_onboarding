@@ -1,0 +1,23 @@
+{
+    "format_version": 1,
+    "imports": [
+        {
+            "target_table": "cb1.db::material",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "cb1.db::material.csv",
+                "has_header": true,
+                "type_config": {
+                    "delimiter": ",",
+                    "do_quote": true
+                }
+            },
+            "import_settings": {
+                "import_columns": [
+                    "id",
+                    "description"
+                ]
+            }
+        }
+    ]
+}

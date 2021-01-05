@@ -1,0 +1,13 @@
+{
+  "name": "cb1-db",
+  "version": "1.0.0",
+  "description": "material hdi",
+  "scripts": {
+    "start": "node node_modules/@sap/hdi-deploy/deploy.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@sap/hdi-deploy": "^3.11.15"
+  }
+}

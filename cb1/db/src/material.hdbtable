@@ -1,0 +1,6 @@
+COLUMN TABLE "cb1.db::material" 
+    (
+        "id" INTEGER, 
+        "description" VARCHAR(100),
+        PRIMARY KEY ("id") 
+    )
