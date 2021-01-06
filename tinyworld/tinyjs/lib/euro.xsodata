@@ -1,0 +1,3 @@
+service {
+  "tinyworld.tinydb::tinyf.country" as "euro";
+}

@@ -1,0 +1,8 @@
+{
+    "destinations": [
+        {
+            "name": "tinyjs_be",
+            "url": "http://localhost:5001"
+        }
+    ]
+}

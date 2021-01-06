@@ -1,0 +1,48 @@
+ID: mta3
+_schema-version: "3.1"
+version: 0.0.1
+
+modules:
+  - name: tinydb-mod
+    type: hdb
+    path: tinydb
+    parameters:
+      memory: 128M
+      disk-quota: 256M
+    requires:
+      - name: tinydb
+
+  - name: tinyjs
+    type: nodejs
+    path: tinyjs
+    parameters:
+      memory: 128M
+      disk-quota: 512M
+    provides:
+      - name: tinyjs_api
+        properties:
+          url: ${default-url}
+    requires:
+      - name: tinydb
+
+  - name: tinyui
+    type: html5
+    path: tinyui
+    parameters:
+      memory: 128M
+      disk-quota: 256M
+    requires:
+      - name: tinyjs_api
+        group: destinations
+        properties:
+          name: tinyjs_be
+          url: ~{url}
+
+resources:
+  - name: tinydb
+    type: com.sap.xs.hdi-container
+    properties:
+      hdi-container-name: tinydb
+    parameters:
+      service: hanatrial
+      service-plan: hdi-shared   
