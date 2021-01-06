@@ -16,6 +16,12 @@ MTA3:
 CB1: Cadastro Básico (bem básico mesmo)
     faz um CRUD vanilla no esquema do XSA
 
+TinyWorld: versão funcional do case do blog:
+    https://blogs.sap.com/2016/03/28/developing-with-xs-advanced-a-tinyworld-tutorial/
+
+    No blog o desenvolvimento é no WebIDE. Mas hj em dia não funciona mais.
+    Nesta versão o mesmo app foi criado aqui direto no BAS.
+
     
 para atualizar o git a partir do BAS:
     na pane de git fazer o add e o commit
