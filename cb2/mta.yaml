@@ -1,26 +1,94 @@
-ID: cb2
 _schema-version: "3.1"
+ID: cb2
 version: 0.0.1
-
 modules:
-  - name: cb2-srv
-    type: nodejs
-    path: srv
-    parameters:
-      memory: 128M
-      disk-quota: 512M
-    provides:
-      - name: srv_api
-        properties:
-          url: ${default-url}
-    requires:
-      - name: cbx-hdi          
-
-resources:
+- name: cb2-srv
+  type: nodejs
+  path: srv
+  requires:
   - name: cbx-hdi
-    type: com.sap.xs.hdi-container
+  provides:
+  - name: srv_api
     properties:
-      hdi-container-name: ${service-name}
+      url: ${default-url}
+  parameters:
+    disk-quota: 512M
+    memory: 128M
+- name: cb2-router
+  type: approuter.nodejs
+  path: cf/router
+  requires:
+  - name: cb2-html5-repo-runtime
+  - name: cb2-uaa
+  - name: cb2-destination
+    group: destinations
+    properties:
+      forwardAuthToken: false
+      name: ui5
+      url: https://ui5.sap.com
+  - name: cb2-connectivity
+  parameters:
+    disk-quota: 256M
+    memory: 256M
+    routes:
+    - route: https://cb2-${org}-${space}.${default-domain}
+- name: cb2-deployer
+  type: com.sap.application.content
+  path: .
+  requires:
+  - name: cb2-html5-repo-host
     parameters:
-      service: hanatrial
-      service-plan: hdi-shared   
+      content-target: true
+  build-parameters:
+    build-result: resources
+    requires:
+    - artifacts:
+      - app1.zip
+      name: app1
+      target-path: resources/
+- name: app1
+  type: html5
+  path: app1
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+resources:
+- name: cbx-hdi
+  type: com.sap.xs.hdi-container
+  parameters:
+    service: hanatrial
+    service-plan: hdi-shared
+  properties:
+    hdi-container-name: ${service-name}
+- name: cb2-uaa
+  type: org.cloudfoundry.managed-service
+  parameters:
+    config:
+      tenant-mode: dedicated
+      xsappname: cb2-${org}
+    service: xsuaa
+    service-plan: application
+- name: cb2-html5-repo-runtime
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-plan: app-runtime
+- name: cb2-destination
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: destination
+    service-plan: lite
+- name: cb2-html5-repo-host
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-plan: app-host
+- name: cb2-connectivity
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: connectivity
+    service-plan: lite
