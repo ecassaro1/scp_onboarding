@@ -1,3 +1,0 @@
-service namespace "cb4.db" {
-  "cb4.db::sales" as "sales";
-}

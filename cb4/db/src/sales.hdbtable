@@ -1,8 +1,0 @@
-COLUMN TABLE "cb4.db::sales" 
-    (
-        "id" INTEGER, 
-        "region" VARCHAR(100),
-        "country" VARCHAR(100),
-        "amount" INTEGER,
-        PRIMARY KEY ("id") 
-    )
