@@ -1,3 +1,0 @@
-service {
-  "cb1.db::material" as "Material";
-}

@@ -1,8 +1,0 @@
-Makefile*.mta
-mta_archives
-mta-*
-
-**/node_modules
-**/package-lock.json
-
-resources
