@@ -36,3 +36,9 @@ TinyWorld: versão funcional do case do blog:
     Nesta versão o mesmo app foi criado aqui direto no BAS.
 
 ---------------------------------------------------------------------------------------------------
+yeomta1: gerado a partir do scafolder de MTA do Hana Academy (Saphanaacademy Mta)
+    https://www.youtube.com/watch?v=B3Z25rFrWbQ&list=PLkzo92owKnVw3l4fqcLoQalyFi9K4-UdY&index=12
+    
+    É o jumpstart para um projeto MTA com todas as boas práticas. Tem alguns exemplos de código.
+    Nesta versão não coloquei XSJS e nem autenticação. Mas no template tem se quiser.
+---------------------------------------------------------------------------------------------------
