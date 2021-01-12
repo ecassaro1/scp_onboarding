@@ -1,0 +1,51 @@
+ID: yeomta1
+_schema-version: "3.1"
+version: 0.0.1
+parameters:
+  enable-parallel-deployments: true
+
+modules:
+  - name: yeomta1-db
+    type: hdb
+    path: db
+    parameters:
+      memory: 128M
+      disk-quota: 256M
+    requires:
+      - name: yeomta1-hdi
+
+  - name: yeomta1-srv
+    type: nodejs
+    path: srv
+    parameters:
+      disk-quota: 512M
+      memory: 256M
+    provides:
+      - name: srv_api
+        properties:
+          url: ${default-url}
+    requires:
+      - name: yeomta1-hdi
+
+
+  - name: yeomta1-app
+    type: html5
+    path: app
+    parameters:
+      disk-quota: 512M
+      memory: 256M
+    requires:
+      - name: srv_api
+        group: destinations
+        properties:
+          name: srv
+          url: ~{url}
+
+resources:
+  - name: yeomta1-hdi
+    type: com.sap.xs.hdi-container
+    properties:
+      hdi-container-name: ${service-name}
+    parameters:
+      service: hanatrial
+      service-plan: hdi-shared   
